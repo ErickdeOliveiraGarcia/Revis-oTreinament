@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" style="border: 1px dotted">
+
+    <p style="color:red"> Paragrafo criado em html </p>
+    </div>
+    <script>
+        const root = document.getElementById('root')
+
+        const parag = document.createElement('p')
+
+        parag.textContent = 'Parágrafo criado com Javascript dentro html'
+        parag.style.color = 'blue'
+        parag.font = 'border'
+
+        root.appendChild(parag)
+        //-----------------------
+        const novaDiv = document.createElement('div')
+
+        novaDiv.textContent = "Isto é uma div, criada com Javascript dentro HTML."
+        novaDiv.style.border = "2px solid red"
+        novaDiv.style.backgroundColor = "yellow"
+        
+        root.appendChild(novaDiv)//appendChild significa anexar filhos
+
+        const div2 = document.createElement('div')
+
+        div2.textContent = "Div fora do root"
+        div2.style.backgroundColor = 'aqua'
+
+        document.body.appendChild(div2)//Essa div está fora do div root
+
+
+
+    </script>
+<!--/**/ //-->
+
+</body>
+</html>
