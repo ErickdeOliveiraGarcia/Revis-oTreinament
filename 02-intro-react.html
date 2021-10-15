@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root" style="border: 1px solid red"></div>
 
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
@@ -17,7 +17,7 @@
         const root = document.getElementById('root')
 
         const props = {
-            id:'div1',
+            id:'minhadiv1',
             children:'Meu primeiro elemento em React', //TextContent
             style: {backgroundColor:'limegreen', border: '2px solid blue'}
         }
@@ -25,9 +25,36 @@
 
         //Ele não somente cria os elementos como "junta" os elementos(createElement+id+style)
         const primeiraDiv = React.createElement('div', props)
+
+        //Criando um parágrafo com props diretamente no createElement
+
+        const parag = React.createElement('p',{
+            children:'Parágrafo criado com React',
+            style: {color:'blue'}
+        })
+
+        //Criando uma div de froma rápida usando React.createElement
+        //com três parâmetros
+        //1º parâmetro: tipo de elemento
+        //2º parâmetro: props (se não existirem, pode ser null)
+        //3º parâmetro: children
+        const segundaDiv = React.createElement('div', null,'Div criada rapidamente no React')
+
+        //Criando uma div container, que conté os demais elementos
+        //dentro dela
+        const container = React.createElement('div', null,[
+            primeiraDiv,
+            parag,
+            segundaDiv
+        ])
+        ReactDOM.render(container,root)
+
+        //ReactDOM.render(segundaDiv,root)
+
+        //ReactDOM.render(parag,root)
         
         //Colocando a primeira div dentro da div "root"
-        ReactDOM.render(primeiraDiv,root)
+        //ReactDOM.render(primeiraDiv,root)
     </script>
 </body>
 </html>
