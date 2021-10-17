@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+<!--O onchange atributo dispara o momento em que o valor do elemento é alterada. 
+Dica: Este evento é semelhante ao oninput evento. A diferença é que o evento oninput
+ ocorre imediatamente depois de o valor de um elemento mudou, enquanto onchange ocorre
+  quando o elemento perde o foco.-->
+<!--OnSubmit No form, o evento onsubmit é um evento que acontece quanto tenta "submter"
+     o formulário, ou seja, por exemplo quando clica num botão submit. Então você pode 
+     executar uma ou mais functions, pode fazer todas as validações que deseja.-->
+    <form id="form1">
+        <label for="campo-nome">Informe seu nome:</label><br>
+        <!--this é parâmetro que representa o próprio evento que esta sendo disparado-->
+        <input id="campo-nome"></input>
+        <button type="submit">Enviar</button>
+    </form>
+    <!--Quando clica no submit chama automaticamente onSubmit -->
+    <script>
+        let nome
+
+        function handleChange(event) {
+          //event é um objeto que contém informações sobre o evento disparado
+         //event.target é o elemento que disparou o evento
+
+         //Capturando o value do input cujo id é campo-nome
+         //nome = document.getElementById('campo-nome').value
+         
+         //Acesso indereto ao value input campo-value
+         nome = event.target.value
+        }
+        
+        function handleSubmit(event){
+            event.preventDefault() //Evita carregamento da pagina
+            alert(`Olá, ${nome}!`)
+           
+        }
+
+        document.getElementById('form1').addEventListener('submit', handleSubmit)
+        
+        document.getElementById('campo-nome').addEventListener('change', handleChange)
+    </script>
+
+</body>
+</html>
